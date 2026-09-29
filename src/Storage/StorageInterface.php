@@ -12,10 +12,7 @@ interface StorageInterface
 
     public function storeSpan(array $data): void;
 
-    /**
-     * @return LengthAwarePaginator
-     */
-    public function getTraces(int $perPage = 50);
+    public function getTraces(int $perPage = 50): LengthAwarePaginator;
 
     public function getTrace(string $traceId): ?array;
 

@@ -32,6 +32,7 @@ class TraceContext
         if ($rate >= 1.0) {
             return $this->sampled = true;
         }
+
         if ($rate <= 0.0) {
             return $this->sampled = false;
         }
@@ -41,11 +42,7 @@ class TraceContext
 
     public function startTrace(Request $request): void
     {
-        // Сброс состояния между запросами (важно для Octane)
-        $this->traceId = null;
-        $this->startedAt = 0;
-        $this->spanCount = 0;
-        $this->sampled = null;
+        $this->reset();
 
         if (! $this->shouldSample()) {
             return;
@@ -54,9 +51,7 @@ class TraceContext
         $this->traceId = Str::uuid()->toString();
         $this->startedAt = microtime(true);
 
-        Log::shareContext([
-            'trace_id' => $this->traceId,
-        ]);
+        Log::shareContext(['trace_id' => $this->traceId]);
     }
 
     public function recordQuerySpan($query, StorageInterface $storage): void
@@ -92,7 +87,6 @@ class TraceContext
             return;
         }
 
-        // Если трейс не стартовал, но конфиг требует всегда писать ошибки — стартуем принудительно
         if (! $this->traceId && config('observability.sampling.always_sample_errors', true)) {
             $this->traceId = Str::uuid()->toString();
             $this->startedAt = microtime(true);
@@ -136,13 +130,8 @@ class TraceContext
             'created_at' => now(),
         ]);
 
-        // Чистим контекст логгера и состояние (важно для Octane)
         Log::shareContext(['trace_id' => null]);
-
-        $this->traceId = null;
-        $this->startedAt = 0;
-        $this->spanCount = 0;
-        $this->sampled = null;
+        $this->reset();
     }
 
     public function getTraceId(): ?string
@@ -150,10 +139,14 @@ class TraceContext
         return $this->traceId;
     }
 
-    /**
-     * Прячем потенциально чувствительные значения: длинные строки,
-     * похожие на токены/хеши/ключи.
-     */
+    private function reset(): void
+    {
+        $this->traceId = null;
+        $this->startedAt = 0;
+        $this->spanCount = 0;
+        $this->sampled = null;
+    }
+
     private function sanitizeBindings(array $bindings): array
     {
         return array_map(function ($value) {

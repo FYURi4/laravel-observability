@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Furushka\Observability\Storage;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseStorage implements StorageInterface
@@ -18,7 +19,7 @@ class DatabaseStorage implements StorageInterface
         DB::table('observability_spans')->insert($data);
     }
 
-    public function getTraces(int $perPage = 50)
+    public function getTraces(int $perPage = 50): LengthAwarePaginator
     {
         return DB::table('observability_traces')
             ->orderByDesc('created_at')

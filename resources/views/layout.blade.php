@@ -10,7 +10,7 @@
         body {
             margin: 0;
             padding: 16px;
-            background: #008080; /* классический teal-фон рабочего стола */
+            background: #008080;
             font-family: "MS Sans Serif", Tahoma, Geneva, sans-serif;
             font-size: 11px;
             color: #000;
@@ -20,7 +20,6 @@
         a { color: #0000c0; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* ===== ОКНО ===== */
         .win-window {
             background: #c0c0c0;
             border: 2px solid;
@@ -78,7 +77,6 @@
             color: #000;
         }
 
-        /* ===== МЕНЮ ===== */
         .win-menubar {
             display: flex;
             padding: 1px 2px;
@@ -93,13 +91,11 @@
         .win-menubar-item:hover { background: #000080; color: #fff; }
         .win-menubar-item u { text-decoration: underline; }
 
-        /* ===== ТЕЛО ОКНА ===== */
         .win-body {
             padding: 6px;
             background: #c0c0c0;
         }
 
-        /* ===== ПАНЕЛИ ===== */
         .win-panel-raised {
             background: #c0c0c0;
             border: 2px solid;
@@ -115,7 +111,6 @@
             overflow: auto;
         }
 
-        /* ===== КНОПКИ ===== */
         .win-btn {
             display: inline-block;
             background: #c0c0c0;
@@ -147,7 +142,6 @@
             cursor: default;
         }
 
-        /* ===== ПОЛЯ ВВОДА ===== */
         .win-input {
             background: #fff;
             border: 2px solid;
@@ -158,7 +152,6 @@
             color: #000;
         }
 
-        /* ===== ТАБЛИЦА ===== */
         .win-table {
             width: 100%;
             border-collapse: collapse;
@@ -194,7 +187,6 @@
         .win-table tbody tr.is-selected { background: #000080; color: #fff; }
         .win-table tbody tr.is-selected a { color: #ffff80; }
 
-        /* ===== СТАТУС-БАР ===== */
         .win-statusbar {
             display: flex;
             gap: 2px;
@@ -211,7 +203,6 @@
         }
         .win-statusbar-cell.is-narrow { flex: 0 0 120px; }
 
-        /* ===== БЕЙДЖИ ===== */
         .win-badge {
             display: inline-block;
             padding: 1px 5px;
@@ -227,7 +218,6 @@
         .win-badge.is-error { background: #ff8080; color: #fff; }
         .win-badge.is-info  { background: #c0e0ff; }
 
-        /* ===== ДЕТАЛИ (property list) ===== */
         .win-props {
             display: grid;
             grid-template-columns: 140px 1fr;
@@ -237,7 +227,6 @@
         .win-props dt { font-weight: bold; }
         .win-props dd { margin: 0; word-break: break-all; }
 
-        /* ===== ПАГИНАЦИЯ ===== */
         .win-pagination {
             display: flex;
             gap: 3px;
@@ -248,7 +237,6 @@
 
         .win-pagination .win-btn { min-width: 32px; padding: 3px 6px; }
 
-        /* ===== УТИЛИТЫ ===== */
         .win-row { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
         .win-row-between { justify-content: space-between; }
         .win-mt { margin-top: 6px; }
@@ -270,7 +258,6 @@
             overflow: auto;
         }
 
-        /* ===== СПАН-СТРОКА ===== */
         .win-span {
             background: #fff;
             border: 2px solid;
