@@ -1,0 +1,43 @@
+# === Composer ===
+/vendor
+composer.lock
+
+# === Сборка и кэш ===
+/build
+/coverage
+.phpunit.cache
+.phpunit.result.cache
+.php-cs-fixer.cache
+*.cache
+
+# === IDE и редакторы ===
+.idea
+.vscode
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# === ОС ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Окружение ===
+.env
+.env.local
+.env.*.local
+
+# === Логи ===
+*.log
+/npm-debug.log*
+/yarn-error.log*
+
+# === Node (если вдруг пригодится) ===
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# === Локальные заметки ===
+/TODO.md
+/NOTES.md

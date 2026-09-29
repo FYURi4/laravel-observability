@@ -1,0 +1,19 @@
+parameters:
+    level: 5
+
+    paths:
+        - src
+        - config
+        - database
+        - routes
+
+    ignoreErrors:
+        # Пакетный конфиг — это конфиг, но Larastan видит его вне app/config
+        -
+            identifier: larastan.noEnvCallsOutsideOfConfig
+
+        # view('observability::index') — namespace-строки Larastan не понимает
+        -
+            message: '#expects view-string\|null, string given#'
+            paths:
+                - src/Http/Controllers/TraceController.php
