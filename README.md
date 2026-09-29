@@ -31,14 +31,6 @@ Install the package via Composer:
 ```bash
 composer require furushka/laravel-observability
 ```
-
-Publish the config and migrations:
-
-```bash
-php artisan vendor:publish --tag=observability-config
-php artisan vendor:publish --tag=observability-migrations
-```
-
 Run the migrations:
 
 ```bash
@@ -144,13 +136,6 @@ The MIT License (MIT). See [LICENSE](LICENSE) for details.
 
 ```bash
 composer require furushka/laravel-observability
-```
-
-Опубликуйте конфиг и миграции:
-
-```bash
-php artisan vendor:publish --tag=observability-config
-php artisan vendor:publish --tag=observability-migrations
 ```
 
 Примените миграции:
